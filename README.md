@@ -16,6 +16,8 @@ Setup:
 
 * Database initialization:
 
+Copy JSON dumps from the `EliFUT/data` repository into the `dumps` directory.
+
 ```
 rake db:migrate
 rake import_players
