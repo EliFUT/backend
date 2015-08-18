@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :players
+  resources :clubs
+  resources :nations
+  resources :leagues
 
   # Example resource route with options:
   #   resources :products do
