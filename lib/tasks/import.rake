@@ -4,6 +4,7 @@ task :import_players => :environment do
     if f.end_with?('.json')
       json = JSON.parse(File.open("#{Rails.root}/dumps/players/#{f}").read)
       json['items'].each do |p|
+        next if Player.find_by(base_id: p['baseId']).present?
         Player.create(
           "first_name" => p['firstName'],
           "last_name" => p['lastName'],
