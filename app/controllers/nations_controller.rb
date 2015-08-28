@@ -1,7 +1,7 @@
 class NationsController < ApplicationController
-  respond_to :json
+  respond_to :json, :html
 
-  def show
-    respond_with Nation.find(params[:id])
+  def index
+    respond_with Nation.all
   end
 end

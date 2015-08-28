@@ -27,6 +27,7 @@ gem 'slim-rails', '3.0.1'
 gem 'sass-rails', '5.0.3'
 gem 'responders', '2.1.0'
 gem 'rails_12factor'
+gem "active_model_serializers"
 
 # Use Unicorn as the app server
 # gem 'unicorn'

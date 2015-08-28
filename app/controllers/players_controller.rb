@@ -4,4 +4,8 @@ class PlayersController < ApplicationController
   def show
     respond_with Player.find(params[:id])
   end
+
+  def index
+    respond_with Player.offset((params[:page] || 0).to_i * 25).limit(25)
+  end
 end
