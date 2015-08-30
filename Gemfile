@@ -28,6 +28,7 @@ gem 'sass-rails', '5.0.3'
 gem 'responders', '2.1.0'
 gem 'rails_12factor'
 gem "active_model_serializers"
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # Use Unicorn as the app server
 # gem 'unicorn'

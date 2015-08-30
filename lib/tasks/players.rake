@@ -82,3 +82,22 @@ task :import_players => :environment do
     end
   end
 end
+
+task :import_players_images => :environment do
+  src_base_url = "http://fifa15.content.easports.com/fifa/fltOnlineAssets/8D941B48-51BB-4B87-960A-06A61A62EBC0/2015/fut/items/images"
+  data_dir = ENV['ELIFUT_DATA_DIRECTORY']
+
+  unless data_dir.present?
+    raise "Data dir not defined. Please set an ELIFUT_DATA_DIRECTORY env variable"
+  end
+
+  out_path = File.join(data_dir, "images/players")
+
+  Player.find_each do |p|
+    file_path = "#{out_path}/player_#{p.base_id}.png"
+    unless File.exist?(file_path)
+      puts "Downloading image for player #{p.id}..."
+      `curl -s #{src_base_url}/players/web/#{p.base_id}.png > #{file_path}`
+    end
+  end
+end
