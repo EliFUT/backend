@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :players
   resources :clubs do
-    get 'random/:nation_id', on: :collection, action: :random
+    get :random, on: :collection, action: :random
   end
   resources :nations
   resources :leagues

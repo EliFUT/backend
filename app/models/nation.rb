@@ -1,3 +1,3 @@
 class Nation < ActiveRecord::Base
-  has_many :nations
+  has_many :leagues
 end

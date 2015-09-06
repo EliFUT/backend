@@ -10,9 +10,10 @@ class ClubsController < ApplicationController
   end
 
   def random
-    respond_with Club.where(nation_id: params[:nation_id])
+    league_ids = League.where(nation_id: params[:nation_id]).pluck(:id)
+    respond_with Club.where(league_id: league_ids)
       .order('random()')
-      .pluck(:id)
-      .take(1)
+      .limit(1)
+      .first, root: false
   end
 end
