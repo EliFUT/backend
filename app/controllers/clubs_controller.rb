@@ -6,7 +6,7 @@ class ClubsController < ApplicationController
   end
 
   def show
-    respond_with Club.find(params[:id])
+    respond_with Club.find(params[:id]), root: false
   end
 
   def random

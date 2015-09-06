@@ -1,8 +1,15 @@
 desc "Import players data from JSON dumps"
 task :import_players => :environment do
-  Dir.entries("#{Rails.root}/dumps/players").each do |f|
+  data_dir = ENV['ELIFUT_DATA_DIRECTORY']
+
+  unless data_dir.present?
+    raise "Data dir not defined. Please set an ELIFUT_DATA_DIRECTORY env variable"
+  end
+
+  players_dir = File.join(data_dir, "players")
+  Dir.entries(players_dir).each do |f|
     if f.end_with?('.json')
-      json = JSON.parse(File.open("#{Rails.root}/dumps/players/#{f}").read)
+      json = JSON.parse(File.open(File.join(players_dir, f)).read)
       json['items'].each do |p|
         next if Player.find_by(base_id: p['baseId']).present?
         Player.create(
