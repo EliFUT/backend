@@ -2,7 +2,7 @@ class NationsController < ApplicationController
   respond_to :json, :html
 
   def index
-    respond_with Nation.all.order('name asc')
+    respond_with Nation.where(id: League.where('nation_id is not null').pluck(:nation_id))
   end
 
   def show

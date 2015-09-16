@@ -104,7 +104,7 @@ task :import_players_images => :environment do
     file_path = "#{out_path}/player_#{p.base_id}.png"
     unless File.exist?(file_path)
       puts "Downloading image for player #{p.id}..."
-      `curl -s #{src_base_url}/players/web/#{p.base_id}.png > #{file_path}`
+      `curl -f -s -# "#{src_base_url}/players/web/#{p.base_id}.png" -o "#{file_path}"`
     end
   end
 end
