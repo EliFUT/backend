@@ -11,6 +11,11 @@ task :import_players => :environment do
     if f.end_with?('.json')
       json = JSON.parse(File.open(File.join(players_dir, f)).read)
       json['items'].each do |p|
+        club = Club.find_by(base_id: p['club']['id'])
+        if club.present? && club.abbrev_name.nil?
+          club_abbr_name = p['club']['abbrName']
+          club.update_attribute(:abbrev_name, club_abbr_name)
+        end
         next if Player.find_by(base_id: p['baseId']).present?
         Player.create(
           "first_name" => p['firstName'],
