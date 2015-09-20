@@ -29,6 +29,7 @@ gem 'responders', '2.1.0'
 gem 'rails_12factor'
 gem "active_model_serializers"
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'parallel'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

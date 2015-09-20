@@ -1,4 +1,4 @@
-SRC_BASE_URL = "http://fifa15.content.easports.com/fifa/fltOnlineAssets/8D941B48-51BB-4B87-960A-06A61A62EBC0/2015/fut/items/images"
+SRC_BASE_URL = "http://fifa15.content.easports.com/fifa/fltOnlineAssets/B488919F-23B5-497F-9FC0-CACFB38863D0/2016/fut/items/images"
 
 desc "Import clubs, countries and leagues data from JSON dumps"
 task :import_metadata => :environment do
@@ -54,16 +54,18 @@ task :assign_relationships => :environment do
   end
 end
 
-task :download_clubs_images => :environment do
+task :import_clubs_images => :environment do
   data_dir = ENV['ELIFUT_DATA_DIRECTORY']
-  Club.find_each do |club|
+  Parallel.map(Club.find_each) do |club|
     id = club.base_id
     normal_image_path = File.join(data_dir, "images/clubs/normal/club_#{id}.png")
     large_image_path = File.join(data_dir, "images/clubs/large/club_#{id}.png")
-    unless File.exist?(normal_image_path)
-      `curl -f -s -# "#{SRC_BASE_URL}/clubbadges/html5/normal/44x44/l#{id}.png" -o "#{normal_image_path}"`
-    end
+    # unless File.exist?(normal_image_path)
+      putc "."
+      `curl -f -s -# "#{SRC_BASE_URL}/clubbadges/html5/normal/45x45/l#{id}.png" -o "#{normal_image_path}"`
+    # end
     unless File.exist?(large_image_path)
+      putc "."
       `curl -f -s -# "#{SRC_BASE_URL}/clubbadges/web/s#{id}.png" -o "#{large_image_path}"`
     end
   end

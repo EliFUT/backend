@@ -1,5 +1,5 @@
 desc "Import players data from JSON dumps"
-task :import_players => :environment do
+task :import_players_db => :environment do
   data_dir = ENV['ELIFUT_DATA_DIRECTORY']
 
   unless data_dir.present?
@@ -16,8 +16,8 @@ task :import_players => :environment do
           club_abbr_name = p['club']['abbrName']
           club.update_attribute(:abbrev_name, club_abbr_name)
         end
-        next if Player.find_by(base_id: p['baseId']).present?
-        Player.create(
+        player = Player.find_by(base_id: p['baseId'])
+        args = {
           "first_name" => p['firstName'],
           "last_name" => p['lastName'],
           "common_name" => p['commonName'],
@@ -88,7 +88,12 @@ task :import_players => :environment do
           "fifa_id" => p['id'],
           "base_id" => p['baseId'],
           "rating" => p['rating']
-        )
+        }
+        if player.nil?
+          Player.create(args)
+        else
+          player.update_attributes(args)
+        end
       end
       puts f
     end
@@ -96,7 +101,7 @@ task :import_players => :environment do
 end
 
 task :import_players_images => :environment do
-  src_base_url = "http://fifa15.content.easports.com/fifa/fltOnlineAssets/8D941B48-51BB-4B87-960A-06A61A62EBC0/2015/fut/items/images"
+  src_base_url = "http://fifa15.content.easports.com/fifa/fltOnlineAssets/B488919F-23B5-497F-9FC0-CACFB38863D0/2016/fut/items/images"
   data_dir = ENV['ELIFUT_DATA_DIRECTORY']
 
   unless data_dir.present?
@@ -105,11 +110,28 @@ task :import_players_images => :environment do
 
   out_path = File.join(data_dir, "images/players")
 
-  Player.find_each do |p|
+  Parallel.map(Player.find_each) do |p|
     file_path = "#{out_path}/player_#{p.base_id}.png"
     unless File.exist?(file_path)
-      puts "Downloading image for player #{p.id}..."
-      `curl -f -s -# "#{src_base_url}/players/web/#{p.base_id}.png" -o "#{file_path}"`
+      putc "."
+      `curl -f -s -# "#{src_base_url}/players/html5/120x120/#{p.base_id}.png" -o "#{file_path}"`
     end
+  end
+end
+
+task :import_players_json => :environment do
+  data_dir = ENV['ELIFUT_DATA_DIRECTORY']
+
+  unless data_dir.present?
+    raise "Data dir not defined. Please set an ELIFUT_DATA_DIRECTORY env variable"
+  end
+
+  out_path = File.join(data_dir, "players")
+  total_pages = 569
+
+  1.upto(total_pages) do |page|
+    out_file = File.join(out_path, "players_#{page}.json")
+    putc "."
+    `curl -f -s -# "https://www.easports.com/fifa/ultimate-team/api/fut/item?jsonParamObject=%7B%22page%22:#{page}%7D" -o "#{out_file}"`
   end
 end
