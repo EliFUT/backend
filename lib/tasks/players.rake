@@ -1,5 +1,6 @@
 desc "Import players data from JSON dumps"
 task :import_players_db => :environment do
+  ActiveRecord::Base.logger = nil
   data_dir = ENV['ELIFUT_DATA_DIRECTORY']
 
   unless data_dir.present?
@@ -12,18 +13,36 @@ task :import_players_db => :environment do
       json = JSON.parse(File.open(File.join(players_dir, f)).read)
       json['items'].each do |p|
         club = Club.find_by(base_id: p['club']['id'])
-        if club.present? && club.abbrev_name.nil?
+        league = League.find_by(base_id: p['league']['id'])
+        nation = Nation.find_by(base_id: p['nation']['id'])
+        unless club
+          puts "Club #{p['club']['name']} not found"
+          next
+        end
+        unless league
+          puts "League #{p['league']['name']} not found"
+          next
+        end
+        unless nation
+          puts "Nation #{p['nation']['name']} not found"
+          next
+        end
+        if club.abbrev_name.nil?
           club_abbr_name = p['club']['abbrName']
           club.update_attribute(:abbrev_name, club_abbr_name)
+        end
+        if league.abbrev_name.nil?
+          league_abbr_name = p['league']['abbrName']
+          league.update_attribute(:abbrev_name, league_abbr_name)
         end
         player = Player.find_by(base_id: p['baseId'])
         args = {
           "first_name" => p['firstName'],
           "last_name" => p['lastName'],
           "common_name" => p['commonName'],
-          "league_id" => p['league']['id'],
-          "nation_id" => p['nation']['id'],
-          "club_id" => p['club']['id'],
+          "league_id" => league.id,
+          "nation_id" => nation.id,
+          "club_id" => club.id,
           "position" => p['position'],
           "play_style" => p['playStyle'],
           "height" => p['height'],
@@ -95,7 +114,7 @@ task :import_players_db => :environment do
           player.update_attributes(args)
         end
       end
-      puts f
+      putc "."
     end
   end
 end

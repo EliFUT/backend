@@ -10,6 +10,6 @@ class PlayersController < ApplicationController
   end
 
   def squad
-    respond_with Player.where(club_id: params[:club_id])
+    respond_with Player.where(club_id: params[:club_id]).by_position
   end
 end

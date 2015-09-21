@@ -1,5 +1,5 @@
 class ClubSerializer < ActiveModel::Serializer
-  attributes(:id, :base_id, :abbrev_name, :name, :small_image, :large_image)
+  attributes(:id, :base_id, :abbrev_name, :name, :small_image, :large_image, :league_id)
 
   def large_image
     # http://stackoverflow.com/questions/16609814/how-to-use-a-digest-aware-asset-for-default-url-in-rails4/16609815#16609815

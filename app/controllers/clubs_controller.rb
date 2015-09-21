@@ -2,7 +2,11 @@ class ClubsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Club.all.order('name asc')
+    if params[:league_id]
+      respond_with Club.where(league_id: params[:league_id]).order('name asc')
+    else
+      respond_with Club.all.order('name asc')
+    end
   end
 
   def show
