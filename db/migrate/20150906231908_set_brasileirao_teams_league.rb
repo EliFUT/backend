@@ -20,7 +20,7 @@ class SetBrasileiraoTeamsLeague < ActiveRecord::Migration
     "São Paulo",
     "Vitória"].each do |name|
       club = Club.find_by(name: name)
-      club.update_attribute(:league_id, brasileirao_id)
+      club.update_attribute(:league_id, brasileirao_id) if club
     end
   end
 end

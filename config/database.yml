@@ -29,5 +29,5 @@ test:
 production:
   <<: *default
   database: elifut
-  username: root
+  username: felipecsl
   password: <%= ENV['DB_PASSWORD'] %>
