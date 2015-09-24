@@ -21,7 +21,7 @@ Rails.application.configure do
 
   ActionController::Base.asset_host = 'http://localhost:3000'
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_controller.asset_host = 'http://localhost:3000'
+  config.action_controller.asset_host = 'http://10.0.3.2:3000'
   config.action_mailer.asset_host = config.action_controller.asset_host
 
   # Raise an error on page load if there are pending migrations.
