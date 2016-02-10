@@ -1,4 +1,4 @@
-ruby '2.2.3'
+ruby '2.3.0'
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -26,7 +26,6 @@ gem 'pg', '0.18.2'
 gem 'slim-rails', '3.0.1'
 gem 'sass-rails', '5.0.3'
 gem 'responders', '2.1.0'
-gem 'rails_12factor'
 gem "active_model_serializers"
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'parallel'
