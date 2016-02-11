@@ -60,10 +60,10 @@ task :import_clubs_images => :environment do
     id = club.base_id
     normal_image_path = File.join(data_dir, "images/clubs/normal/club_#{id}.png")
     large_image_path = File.join(data_dir, "images/clubs/large/club_#{id}.png")
-    # unless File.exist?(normal_image_path)
+    unless File.exist?(normal_image_path)
       putc "."
       `curl -f -s -# "#{SRC_BASE_URL}/clubbadges/html5/normal/45x45/l#{id}.png" -o "#{normal_image_path}"`
-    # end
+    end
     unless File.exist?(large_image_path)
       putc "."
       `curl -f -s -# "#{SRC_BASE_URL}/clubbadges/web/s#{id}.png" -o "#{large_image_path}"`

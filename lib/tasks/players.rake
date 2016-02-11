@@ -146,7 +146,7 @@ task :import_players_json => :environment do
   end
 
   out_path = File.join(data_dir, "players")
-  total_pages = 569
+  total_pages = 657
 
   1.upto(total_pages) do |page|
     out_file = File.join(out_path, "players_#{page}.json")
