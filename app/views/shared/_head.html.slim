@@ -1,0 +1,21 @@
+meta[charset='utf-8']
+meta[http-equiv='X-UA-Compatible' content='IE=edge']
+title EliFUT - A modern mobile fantasy soccer game for Fifa and Elifoot fans.
+meta[name='viewport' content='width=device-width, initial-scale=1.0']
+meta[name='description' content='EliFUT is a modern mobile fantasy soccer game for Fifa and Elifoot fans.']
+= stylesheet_link_tag    "application", media: "all"
+= javascript_include_tag "application", controller_name
+= javascript_include_tag 'https://apis.google.com/js/platform.js'
+== yield :extra_assets
+= favicon_link_tag image_url('apple-touch-icon.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+= favicon_link_tag image_url('apple-touch-icon.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+= favicon_link_tag image_url('apple-touch-icon.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+= favicon_link_tag image_url('apple-touch-icon.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
+= favicon_link_tag image_url('favicon.ico')
+= csrf_meta_tags
+meta[property='og:type' content='website']
+meta[property='og:site_name' content='Coinverse']
+meta[property='og:url' content='http://elifut.com/']
+meta[property='og:image' content=image_url('og-image.png')]
+meta[property='og:title' content='EliFUT']
+meta[property='og:description' content='EliFUT is a modern mobile fantasy soccer game for Fifa and Elifoot fans.']

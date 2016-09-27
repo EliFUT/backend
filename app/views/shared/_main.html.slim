@@ -1,0 +1,9 @@
+main
+  .container
+    - flash.each do |name, msg|
+      .flash
+        .alert.alert-dismissable.fade.in[class="alert-#{name}"]
+          button.close[type='button' data-dismiss='alert' aria-hidden='true']
+            | ×
+          = msg
+    = yield

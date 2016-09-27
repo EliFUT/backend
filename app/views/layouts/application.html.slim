@@ -1,0 +1,9 @@
+doctype html
+html[lang="en"]
+  head
+    = render partial: 'shared/head'
+  body
+    = render partial: 'shared/header_internal'
+    = render partial: 'shared/main'
+    = render partial: 'shared/footer'
+    == yield :extra_js

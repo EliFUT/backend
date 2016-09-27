@@ -1,0 +1,15 @@
+@import 'colors';
+
+header nav {
+  .nav-status-bar {
+    height: 20px;
+  }
+  background-color: transparent;
+  box-shadow: none;
+  height: 150px;
+
+  #logo-container {
+    margin-top: 4px;
+    font-size: 2.3rem;
+  }
+}
