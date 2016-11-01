@@ -36,6 +36,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano-rails'
   gem 'capistrano-npm'
+  gem 'capistrano-nvm', require: false
   gem 'capistrano-passenger'
 end
 
