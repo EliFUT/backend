@@ -18,3 +18,4 @@
 public/assets
 .DS_Store
 lib/assets/bower_components
+node_modules
