@@ -18,5 +18,8 @@
   "homepage": "https://github.com/EliFUT/backend#readme",
   "dependencies": {
     "bower": "^1.7.9"
+  },
+  "scripts": {
+    "postinstall": "bower install CI=true"
   }
 }
