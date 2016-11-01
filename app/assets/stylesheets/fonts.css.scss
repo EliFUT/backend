@@ -1,7 +1,7 @@
 @font-face {
   font-family: "EaSans";
   src: local(EASansCurves-Regular);
-  src: url("/assets/EASansCurves-Regular.woff") format("woff"),
-      url("/assets/EASansCurves-Regular.ttf") format("truetype");
+  src: font-url("EASansCurves-Regular.woff") format("woff"),
+      font-url("EASansCurves-Regular.ttf") format("truetype");
   font-weight: 300;
 }
