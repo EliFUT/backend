@@ -4,6 +4,9 @@ lock '3.4.0'
 set :application, 'elifut'
 set :repo_url, 'git@github.com:EliFUT/backend.git'
 set :passenger_restart_with_touch, true
+set :nvm_type, :user
+set :nvm_node, 'v6.6.0'
+set :nvm_map_bins, %w{node npm}
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
