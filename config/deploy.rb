@@ -4,6 +4,7 @@ lock '3.4.0'
 set :application, 'elifut'
 set :repo_url, 'git@github.com:EliFUT/backend.git'
 set :passenger_restart_with_touch, true
+set :bower_bin, "/home/felipecsl/.nvm/versions/node/v6.6.0/bin/bower"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
