@@ -1,0 +1,22 @@
+{
+  "name": "elifut",
+  "version": "1.0.0",
+  "description": "Elifut.com backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EliFUT/backend.git"
+  },
+  "author": "Felipe Lima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EliFUT/backend/issues"
+  },
+  "homepage": "https://github.com/EliFUT/backend#readme",
+  "dependencies": {
+    "bower": "^1.7.9"
+  }
+}
