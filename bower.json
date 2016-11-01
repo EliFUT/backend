@@ -1,8 +1,15 @@
 {
-  "name": "bower-rails generated lib assets",
-  "dependencies": {
-    "underscore": "latest",
-    "fontawesome": "latest",
-    "materialize": "latest"
+  "lib": {
+    "name": "bower-rails generated lib assets",
+    "dependencies": {
+      "underscore": "latest",
+      "fontawesome": "latest",
+      "materialize": "latest"
+    }
+  },
+  "vendor": {
+    "name": "bower-rails generated vendor assets",
+    "dependencies": {
+    }
   }
 }
