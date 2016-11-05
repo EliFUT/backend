@@ -26,6 +26,6 @@ module ElifutBackend
     config.assets.paths << Rails.root.join('assets')
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.assets.paths << Rails.root.join('lib', 'assets', 'bower_components')
-    config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+    config.assets.paths << Rails.root.join('lib', 'assets', 'data', 'images')
   end
 end

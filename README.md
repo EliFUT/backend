@@ -6,14 +6,10 @@ Hosted on [Heroku](http://elifut.herokuapp.com).
 
 Setup:
 
-* Ruby version: 2.2.2
-
+* Ruby version: 2.3.1
 * System dependencies: Postgres
-
 * Configuration
-
 * Database creation: `rake db:create`
-
 * Database initialization:
 
 Copy JSON dumps from the `EliFUT/data` repository into the `dumps` directory.
