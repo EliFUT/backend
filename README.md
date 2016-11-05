@@ -2,22 +2,23 @@
 
 Check the [Medium post](https://medium.com/@felipecsl/creating-an-android-app-for-beginners-part-i-410a7a64d9b1) for more information about it.
 
-Hosted on [Heroku](http://elifut.herokuapp.com).
+Official website: [elifut.com](http://elifut.com).
 
-Setup:
+## Setup:
 
 * Ruby version: 2.3.1
 * System dependencies: Postgres
-* Configuration
-* Database creation: `rake db:create`
+
+
+## Configuration
+
 * Database initialization:
 
-Copy JSON dumps from the `EliFUT/data` repository into the `dumps` directory.
+Set an environment variable called `ELIFUT_DATA_DIRECTORY` pointing to your local clone of the `EliFUT/data` repository.
 
+Run:
 ```
-rake db:migrate
-rake import_players
-rake import_metadata
+rake db:create db:migrate import_metadata assign_relationships import_players_db assign_nations
 ```
 
 * How to run the test suite: `rake spec`

@@ -9,5 +9,5 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += %w( home.js )
-Rails.application.config.assets.precompile += %w( images/clubs/*.png )
+Rails.application.config.assets.precompile += %w( images/*.png )
 Rails.application.config.assets.precompile << /materialize\/fonts\/.+\.(?:svg|eot|woff|woff2|ttf)\z/

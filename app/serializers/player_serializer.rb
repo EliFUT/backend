@@ -5,10 +5,10 @@ class PlayerSerializer < ActiveModel::Serializer
   :nation_image, :color)
 
   def image
-    ActionController::Base.helpers.asset_path "players/player_#{object.base_id}.png"
+    ActionController::Base.helpers.asset_path "images/players/player_#{object.base_id}.png"
   end
 
   def nation_image
-    ActionController::Base.helpers.asset_path "nations/normal/nation_#{object.nation.base_id}.png"
+    ActionController::Base.helpers.asset_path "images/nations/normal/nation_#{object.nation.base_id}.png"
   end
 end
