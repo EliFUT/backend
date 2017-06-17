@@ -1,4 +1,4 @@
-SRC_BASE_URL = "http://fifa15.content.easports.com/fifa/fltOnlineAssets/B488919F-23B5-497F-9FC0-CACFB38863D0/2016/fut/items/images"
+SRC_BASE_URL = "https://fifa17.content.easports.com/fifa/fltOnlineAssets/CC8267B6-0817-4842-BB6A-A20F88B05418/2017/fut/items/images"
 
 desc "Import clubs, countries and leagues data from JSON dumps"
 task :import_metadata => :environment do

@@ -6,7 +6,7 @@ Official website: [elifut.com](http://elifut.com).
 
 ## Setup:
 
-* Ruby version: 2.3.1
+* Ruby version: 2.4.1
 * System dependencies: Postgres
 
 

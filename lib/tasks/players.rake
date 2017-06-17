@@ -119,8 +119,9 @@ task :import_players_db => :environment do
   end
 end
 
+desc 'Downloads players images from easports website'
 task :import_players_images => :environment do
-  src_base_url = "http://fifa15.content.easports.com/fifa/fltOnlineAssets/B488919F-23B5-497F-9FC0-CACFB38863D0/2016/fut/items/images"
+  src_base_url = SRC_BASE_URL
   data_dir = ENV['ELIFUT_DATA_DIRECTORY']
 
   unless data_dir.present?
@@ -138,13 +139,13 @@ task :import_players_images => :environment do
   end
 end
 
+desc "Import players json dumps from easports website"
 task :import_players_json => :environment do
   data_dir = ENV['ELIFUT_DATA_DIRECTORY']
 
   unless data_dir.present?
     raise "Data dir not defined. Please set an ELIFUT_DATA_DIRECTORY env variable"
   end
-
   out_path = File.join(data_dir, "players")
   total_pages = 657
 

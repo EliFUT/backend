@@ -1,7 +1,7 @@
-ruby '2.3.1'
+ruby '2.4.1'
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.8'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -21,7 +21,7 @@ gem "bower-rails"
 
 gem 'pg', '0.18.2'
 gem 'slim-rails', '3.0.1'
-gem 'sass-rails', '5.0.3'
+gem 'sass-rails', '5.0.6'
 gem 'responders', '2.1.0'
 gem "active_model_serializers"
 gem 'dotenv-rails', :groups => [:development, :test]
@@ -37,19 +37,18 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-npm'
   gem 'capistrano-passenger'
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  gem 'rspec-rails', '3.3.3'
+  gem 'rspec-rails', '3.6.0'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
 end
