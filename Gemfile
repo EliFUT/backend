@@ -24,6 +24,7 @@ gem 'slim-rails', '3.0.1'
 gem 'sass-rails', '5.0.6'
 gem 'responders', '2.1.0'
 gem "active_model_serializers"
+gem 'coffee-rails'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'parallel'
 

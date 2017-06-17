@@ -25,7 +25,7 @@ module ElifutBackend
 
     config.assets.paths << Rails.root.join('assets')
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
-    config.assets.paths << Rails.root.join('lib', 'assets', 'bower_components')
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
     config.assets.paths << Rails.root.join('lib', 'assets', 'data', 'images')
   end
 end
