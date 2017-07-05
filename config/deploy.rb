@@ -13,6 +13,7 @@ set :deploy_to, '/var/www/elifut'
 
 # Default value for :scm is :git
 set :scm, :git
+set :nvm_node, 'v8.1.2'
 
 # Default value for :format is :pretty
 # set :format, :pretty
@@ -30,7 +31,9 @@ set :scm, :git
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 # Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+# Need this otherwise bower:install cannot find the node path. TODO fix it
+set :default_env, { path: "/home/felipecsl/.nvm/versions/node/v8.1.2/bin/:$PATH" }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5

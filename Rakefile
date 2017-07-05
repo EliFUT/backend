@@ -4,3 +4,10 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+desc "Import all data"
+task :import_all => [:environment,
+  :import_metadata,
+  :assign_relationships,
+  :import_players_db,
+  :assign_nations]

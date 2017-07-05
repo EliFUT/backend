@@ -34,9 +34,10 @@ gem 'parallel'
 group :development do
   gem 'capistrano', '3.4.0'
   gem 'capistrano-bundler'
-  gem 'capistrano-rvm'
+  gem 'capistrano-rbenv'
   gem 'capistrano-rails'
   gem 'capistrano-npm'
+  gem 'capistrano-nvm', require: false
   gem 'capistrano-passenger'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
