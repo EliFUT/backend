@@ -18,7 +18,7 @@ Set an environment variable called `ELIFUT_DATA_DIRECTORY` pointing to your loca
 
 Run:
 ```
-rake db:create db:migrate import_metadata assign_relationships import_players_db assign_nations
+rake db:create db:migrate import_all
 ```
 
 * How to run the test suite: `rake spec`
